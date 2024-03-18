@@ -1,10 +1,22 @@
+import { useEffect, useState } from 'react';
+
 import LeftAside from './components/LeftAside';
 import Main from './components/Main';
 import RightAside from './components/RightAside';
 
 import './index.css';
+import axios from 'axios';
 
 function App() {
+  const [candidates, setCandidates] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/api/candidates').then((response) => { 
+      setCandidates(response.data);
+    });
+  }, []);
+  
+
   return (
     <div className="grid grid-cols-[2fr_9fr_3fr] min-h-screen font-barlow">
       <LeftAside />
