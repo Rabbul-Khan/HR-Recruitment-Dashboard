@@ -12,7 +12,7 @@ import { AiFillSetting } from 'react-icons/ai';
 import { IoLogOut } from 'react-icons/io5';
 import { useState } from 'react';
 
-const Aside = () => {
+const LeftAside = () => {
   const [selected, setSelected] = useState('dashboard');
   return (
     <aside className="flex flex-col mx-10 my-5 ">
@@ -201,4 +201,4 @@ const Aside = () => {
   );
 };
 
-export default Aside;
+export default LeftAside;

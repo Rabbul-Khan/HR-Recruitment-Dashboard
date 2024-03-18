@@ -13,7 +13,7 @@ export default {
         primary: '#11998E',
         shade: '#B9F2E5',
         'linear-red': '#FF6A49',
-        'linear-yellow': '#E78860',
+        'linear-yellow': '#E7B860',
         'linear-blue': '#61E7D3',
         background: '#E0EDEA',
       },
