@@ -1,7 +1,6 @@
-import React from 'react';
 import SectionHeader from './SectionHeader';
-import { FaCircle } from 'react-icons/fa6';
 import ProgressBar from './ProgressBar';
+import { FaCircle } from 'react-icons/fa6';
 
 const ApplicationsStatistics = ({ candidates }) => {
   function calculateStatusPercentage(data) {
@@ -26,11 +25,12 @@ const ApplicationsStatistics = ({ candidates }) => {
     }
     return statusPercentages;
   }
+
   const percentage = calculateStatusPercentage(candidates);
   console.log(percentage);
 
   return (
-    <div className="flex flex-col gap-5 ">
+    <div className="flex flex-col gap-5">
       <SectionHeader sectionHeaderTitle="Accquisitions" />
       <div className="grid grid-cols-[1fr_3fr] grid-rows-5 gap-8">
         <div className="flex items-center gap-3">
@@ -38,7 +38,7 @@ const ApplicationsStatistics = ({ candidates }) => {
           Applications
         </div>
         <ProgressBar progress={percentage.shortlisted} bgColor="#11998E" />
-        <div className="flex items-center gap-3 ">
+        <div className="flex items-center gap-3">
           <FaCircle className="text-linear-yellow" />
           Shortlisted
         </div>

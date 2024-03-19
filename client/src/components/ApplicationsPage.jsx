@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import ApplicationsTable from './ApplicationsTable';
 import JobsDropdown from './JobsDropdown';
-import { useState } from 'react';
 
 const ApplicationsPage = ({ candidates, selectedJob, setSelectedJob }) => {
   const [filteredCandidates, setFilteredCandidates] = useState(candidates);
@@ -20,6 +20,7 @@ const ApplicationsPage = ({ candidates, selectedJob, setSelectedJob }) => {
       );
     }
   };
+
   return (
     <div className="flex flex-col gap-3 px-10 py-5 ">
       <h1 className="text-xl font-semibold ">Application</h1>

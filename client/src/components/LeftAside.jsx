@@ -1,11 +1,9 @@
-import { MdDashboard } from 'react-icons/md';
+import { MdDashboard, MdPerson } from 'react-icons/md';
+import { FaCalendar, FaBookBookmark } from 'react-icons/fa6';
 import { BiSolidEnvelope } from 'react-icons/bi';
-import { FaCalendar } from 'react-icons/fa6';
 import { IoMdBriefcase } from 'react-icons/io';
 import { TbAppsFilled } from 'react-icons/tb';
 import { PiTreeStructureFill } from 'react-icons/pi';
-import { FaBookBookmark } from 'react-icons/fa6';
-import { MdPerson } from 'react-icons/md';
 import { FaBoxes } from 'react-icons/fa';
 import { BsPieChartFill } from 'react-icons/bs';
 import { AiFillSetting } from 'react-icons/ai';
@@ -20,7 +18,7 @@ const LeftAside = ({ setActiveTab, activeTab }) => {
         height={50}
         className="mx-auto mb-10"
       />
-      <div className="flex flex-col gap-5 text-sm font-bold">
+      <nav className="flex flex-col gap-5 text-sm font-bold">
         <div>
           <div className="mb-3">Menu</div>
           <ul className="flex flex-col gap-2 font-medium ">
@@ -195,7 +193,7 @@ const LeftAside = ({ setActiveTab, activeTab }) => {
             </li>
           </ul>
         </div>
-      </div>
+      </nav>
     </aside>
   );
 };

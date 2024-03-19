@@ -1,20 +1,62 @@
-import React from 'react';
-
 import {
   BarChart,
   Bar,
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
-  Legend,
-  ReferenceLine,
   ResponsiveContainer,
 } from 'recharts';
 
 import ToggleSwitch from './ToggleSwitch';
 import SectionHeader from './SectionHeader';
 
+const BarChartStatistic = ({}) => {
+  return (
+    <div className="flex flex-col gap-5  max-w-[500px]">
+      <SectionHeader sectionHeaderTitle="Statistics of Active Applications" />
+
+      <ResponsiveContainer aspect={550 / 300}>
+        <BarChart data={data} stackOffset="sign">
+          <CartesianGrid strokeDasharray="6 6" vertical={false} />
+          <XAxis dataKey="name" axisLine={false} tickLine={false} />
+          <YAxis unit="%" tickCount={6} axisLine={false} tickLine={false} />
+          <Bar dataKey="onHold" fill="#7B7B7B" stackId="stack" barSize={5} />
+          <Bar dataKey="rejected" fill="#FF6A49" stackId="stack" />
+          <Bar dataKey="shortlisted" fill="#E78860" stackId="stack" />
+          <Bar dataKey="applications" fill="#11998E" stackId="stack" />
+        </BarChart>
+      </ResponsiveContainer>
+
+      {/* Functionality to toggle the visibility of the bars has not been implemented. */}
+      <div className="flex justify-between gap-5">
+        <ToggleSwitch
+          activeColor="primary"
+          inactiveColor="inactive"
+          label="Applications"
+        />
+        <ToggleSwitch
+          activeColor="yellow"
+          inactiveColor="inactive"
+          label="Shortlisted"
+        />
+        <ToggleSwitch
+          activeColor="red"
+          inactiveColor="inactive"
+          label="Rejected"
+        />
+        <ToggleSwitch
+          activeColor="grey"
+          inactiveColor="inactive"
+          label="On Hold"
+        />
+      </div>
+    </div>
+  );
+};
+
+export default BarChartStatistic;
+
+// Sample data. Can be fetched from the database and modified in the following format.
 const data = [
   {
     name: 'Mon',
@@ -66,48 +108,3 @@ const data = [
     onHold: 0,
   },
 ];
-
-const BarChartStatistic = ({ candidates }) => {
-  return (
-    <div className="flex flex-col gap-5  max-w-[500px]">
-      <SectionHeader sectionHeaderTitle="Statistics of Active Applications" />
-
-      <ResponsiveContainer aspect={550 / 300}>
-        <BarChart data={data} stackOffset="sign">
-          <CartesianGrid strokeDasharray="6 6" vertical={false} />
-          <XAxis dataKey="name" axisLine={false} tickLine={false} />
-          <YAxis unit="%" tickCount={6} axisLine={false} tickLine={false} />
-          <Bar dataKey="onHold" fill="#7B7B7B" stackId="stack" barSize={5} />
-          <Bar dataKey="rejected" fill="#FF6A49" stackId="stack" />
-          <Bar dataKey="shortlisted" fill="#E78860" stackId="stack" />
-          <Bar dataKey="applications" fill="#11998E" stackId="stack" />
-        </BarChart>
-      </ResponsiveContainer>
-
-      <div className="flex justify-between gap-5">
-        <ToggleSwitch
-          activeColor="primary"
-          inactiveColor="inactive"
-          label="Applications"
-        />
-        <ToggleSwitch
-          activeColor="yellow"
-          inactiveColor="inactive"
-          label="Shortlisted"
-        />
-        <ToggleSwitch
-          activeColor="red"
-          inactiveColor="inactive"
-          label="Rejected"
-        />
-        <ToggleSwitch
-          activeColor="grey"
-          inactiveColor="inactive"
-          label="On Hold"
-        />
-      </div>
-    </div>
-  );
-};
-
-export default BarChartStatistic;

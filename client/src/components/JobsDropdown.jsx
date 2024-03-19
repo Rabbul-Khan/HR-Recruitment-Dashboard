@@ -1,12 +1,8 @@
 import { Menu, Transition } from '@headlessui/react';
-import { Fragment, useEffect, useRef, useState } from 'react';
+import { Fragment } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
 
-export default function JobsDropdown({
-  candidates,
-  selectedJob,
-  setSelectedJob,
-}) {
+export default function JobsDropdown({ selectedJob, setSelectedJob }) {
   const jobs = ['Jr UI/UX Designer', 'Product Designer', 'Brand Strategist'];
   return (
     <div className="w-full ">

@@ -1,4 +1,3 @@
-import { BsArrowUpRightCircle } from 'react-icons/bs';
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { GoArrowUpRight } from 'react-icons/go';
 

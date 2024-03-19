@@ -33,7 +33,7 @@ export default function ToggleSwitch({ activeColor, inactiveColor, label }) {
             pointer-events-none inline-block h-[11px] w-[11px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
           />
         </Switch>
-        <Switch.Label className="text-sm font-medium  min-w-max">
+        <Switch.Label className="text-sm font-medium min-w-max">
           {label}
         </Switch.Label>
       </div>

@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   AreaChart,
   Area,
@@ -7,6 +6,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
+
 import SectionHeader from './SectionHeader';
 
 const AreaChartStatistic = ({ candidates }) => {
@@ -32,8 +32,8 @@ const AreaChartStatistic = ({ candidates }) => {
           <Area
             type="monotone"
             dataKey="applicationsReceived"
-            stroke="#8884d8"
-            fill="#8884d8"
+            stroke="#11998E"
+            fill="#B9F2E5"
             strokeWidth={2}
             activeDot={{ stroke: 'white', strokeWidth: 1.5, r: 7 }}
           />
@@ -45,6 +45,7 @@ const AreaChartStatistic = ({ candidates }) => {
 
 export default AreaChartStatistic;
 
+// Sample data. Can be fetched from the database and transformed into the following format.
 const data = [
   {
     name: '8PM',

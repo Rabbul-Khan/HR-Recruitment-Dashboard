@@ -1,25 +1,23 @@
-// import Statistic from './components/Statistic';
-// import AreaChartStatistic from './components/AreaChartStatistic';
-// import BarChartStatistic from './components/BarChartStatistic';
-
 import Statistic from './Statistic';
 import AreaChartStatistic from './AreaChartStatistic';
 import BarChartStatistic from './BarChartStatistic';
-import { IoSearchOutline } from 'react-icons/io5';
 import GenderPieChart from './GenderPieChart';
 import ApplicationsStatistics from './ApplicationsStatistics';
+import { IoSearchOutline } from 'react-icons/io5';
 
 const Main = ({ candidates }) => {
   const totalCandidates = candidates.length;
+
   const shortlistedCandidates = candidates.filter(
     (candidate) => candidate.application_status === 'shortlisted'
   ).length;
+
   const rejectedCandidates = candidates.filter(
     (candidate) => candidate.application_status === 'rejected'
   ).length;
 
   return (
-    <main className="mx-10 grid grid-cols-3 grid-rows-[100px_150px_400px_400px]  gap-10">
+    <main className="mx-10 grid grid-cols-3 grid-rows-[100px_150px_400px_400px] gap-10">
       <header className="flex items-center justify-between col-start-1 col-end-4 row-start-1 row-end-2 my-10">
         <p className="text-2xl font-semibold">Good Morning</p>
         <div className="flex">
@@ -57,7 +55,7 @@ const Main = ({ candidates }) => {
         />
       </div>
       <div className="grid grid-cols-2 col-start-1 col-end-4 row-start-3 row-end-4">
-        <BarChartStatistic candidates={candidates} />
+        <BarChartStatistic />
         <ApplicationsStatistics candidates={candidates} />
       </div>
       <div className="grid grid-cols-2 col-start-1 col-end-4 row-start-4 row-end-5 ">
