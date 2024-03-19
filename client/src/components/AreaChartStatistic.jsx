@@ -9,10 +9,11 @@ import {
 } from 'recharts';
 import SectionHeader from './SectionHeader';
 
-const AreaChartStatistic = () => {
+const AreaChartStatistic = ({ candidates }) => {
   return (
-    <div className="max-w-[500px]">
+    <div className="">
       <SectionHeader sectionHeaderTitle="Applications Received Time" />
+
       <ResponsiveContainer aspect={550 / 300}>
         <AreaChart data={data}>
           <XAxis
@@ -47,30 +48,30 @@ export default AreaChartStatistic;
 const data = [
   {
     name: '8PM',
-    applicationsReceived: 20,
+    applicationsReceived: 2,
   },
   {
     name: '10PM',
-    applicationsReceived: 40,
+    applicationsReceived: 4,
   },
   {
     name: '12AM',
-    applicationsReceived: 30,
+    applicationsReceived: 3,
   },
   {
     name: '2AM',
-    applicationsReceived: 50,
+    applicationsReceived: 5,
   },
   {
     name: '4AM',
-    applicationsReceived: 90,
+    applicationsReceived: 9,
   },
   {
     name: '6AM',
-    applicationsReceived: 10,
+    applicationsReceived: 1,
   },
   {
     name: '8AM',
-    applicationsReceived: 50,
+    applicationsReceived: 5,
   },
 ];

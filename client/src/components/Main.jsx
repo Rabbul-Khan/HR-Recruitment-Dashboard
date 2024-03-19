@@ -6,12 +6,22 @@ import Statistic from './Statistic';
 import AreaChartStatistic from './AreaChartStatistic';
 import BarChartStatistic from './BarChartStatistic';
 import { IoSearchOutline } from 'react-icons/io5';
+import GenderPieChart from './GenderPieChart';
+import ApplicationsStatistics from './ApplicationsStatistics';
 
-const Main = () => {
+const Main = ({ candidates }) => {
+  const totalCandidates = candidates.length;
+  const shortlistedCandidates = candidates.filter(
+    (candidate) => candidate.application_status === 'shortlisted'
+  ).length;
+  const rejectedCandidates = candidates.filter(
+    (candidate) => candidate.application_status === 'rejected'
+  ).length;
+
   return (
-    <main className="mx-10">
-      <header className="flex items-center justify-between my-10">
-        <p className="text-lg font-semibold">Good Morning</p>
+    <main className="mx-10 grid grid-cols-3 grid-rows-[100px_150px_400px_400px]  gap-10">
+      <header className="flex items-center justify-between col-start-1 col-end-4 row-start-1 row-end-2 my-10">
+        <p className="text-2xl font-semibold">Good Morning</p>
         <div className="flex">
           <input
             type="text"
@@ -23,31 +33,37 @@ const Main = () => {
           </div>
         </div>
       </header>
-      <div className="flex justify-between">
+      <div className="grid grid-cols-3 col-start-1 col-end-4 row-start-2 row-end-3 gap-16">
         <Statistic
           typeOfCandidates="Total Candidates"
-          noOfCandidates="201"
+          noOfCandidates={totalCandidates}
           percentageIncrease="26"
           piePercentage="74"
           color="#11998E"
         />
         <Statistic
           typeOfCandidates="Shortlisted Candidates"
-          noOfCandidates="361"
+          noOfCandidates={shortlistedCandidates}
           percentageIncrease="45"
-          piePercentage="74"
+          piePercentage="64"
           color="#E78860"
         />
         <Statistic
           typeOfCandidates="Rejected Candidates"
-          noOfCandidates="160"
+          noOfCandidates={rejectedCandidates}
           percentageIncrease="04"
-          piePercentage="74"
+          piePercentage="35"
           color="#FF6A49"
         />
       </div>
-      <BarChartStatistic />
-      <AreaChartStatistic />
+      <div className="grid grid-cols-2 col-start-1 col-end-4 row-start-3 row-end-4">
+        <BarChartStatistic candidates={candidates} />
+        <ApplicationsStatistics candidates={candidates} />
+      </div>
+      <div className="grid grid-cols-2 col-start-1 col-end-4 row-start-4 row-end-5 ">
+        <AreaChartStatistic candidates={candidates} />
+        <GenderPieChart candidates={candidates} />
+      </div>
     </main>
   );
 };

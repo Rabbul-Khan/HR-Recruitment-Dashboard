@@ -10,10 +10,8 @@ import { FaBoxes } from 'react-icons/fa';
 import { BsPieChartFill } from 'react-icons/bs';
 import { AiFillSetting } from 'react-icons/ai';
 import { IoLogOut } from 'react-icons/io5';
-import { useState } from 'react';
 
-const LeftAside = () => {
-  const [selected, setSelected] = useState('dashboard');
+const LeftAside = ({ setActiveTab, activeTab }) => {
   return (
     <aside className="flex flex-col mx-10 my-5 ">
       <img
@@ -22,45 +20,58 @@ const LeftAside = () => {
         height={50}
         className="mx-auto mb-10"
       />
-      <div className="flex flex-col gap-5 text-xs font-bold">
+      <div className="flex flex-col gap-5 text-sm font-bold">
         <div>
           <div className="mb-3">Menu</div>
           <ul className="flex flex-col gap-2 font-medium ">
             <li
-              onClick={() => setSelected('dashboard')}
+              onClick={() => setActiveTab('dashboard')}
               className={`flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-primary hover:text-white group ${
-                selected === 'dashboard' ? 'bg-primary text-white' : ''
+                activeTab === 'dashboard' ? 'bg-primary text-white' : ''
               }`}
             >
               <MdDashboard
                 className={`text-xl text-grey group-hover:text-white  ${
-                  selected === 'dashboard' ? 'text-white' : ''
+                  activeTab === 'dashboard' ? 'text-white' : ''
                 }`}
               />
               <div>Dashboard</div>
             </li>
             <li
-              onClick={() => setSelected('message')}
+              onClick={() => setActiveTab('applications')}
               className={`flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-primary hover:text-white group ${
-                selected === 'message' ? 'bg-primary text-white' : ''
+                activeTab === 'applications' ? 'bg-primary text-white' : ''
+              }`}
+            >
+              <TbAppsFilled
+                className={`text-xl text-grey group-hover:text-white  ${
+                  activeTab === 'applications' ? 'text-white' : ''
+                }`}
+              />
+              <div>Applications</div>
+            </li>
+            <li
+              onClick={() => setActiveTab('message')}
+              className={`flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-primary hover:text-white group ${
+                activeTab === 'message' ? 'bg-primary text-white' : ''
               }`}
             >
               <BiSolidEnvelope
                 className={`text-xl text-grey group-hover:text-white  ${
-                  selected === 'message' ? 'text-white' : ''
+                  activeTab === 'message' ? 'text-white' : ''
                 }`}
               />
               <div>Message</div>
             </li>
             <li
-              onClick={() => setSelected('calender')}
+              onClick={() => setActiveTab('calender')}
               className={`flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-primary hover:text-white group ${
-                selected === 'calender' ? 'bg-primary text-white' : ''
+                activeTab === 'calender' ? 'bg-primary text-white' : ''
               }`}
             >
               <FaCalendar
-                className={`text-lg text-grey group-hover:text-white  ${
-                  selected === 'calender' ? 'text-white' : ''
+                className={`text-xl text-grey group-hover:text-white  ${
+                  activeTab === 'calender' ? 'text-white' : ''
                 }`}
               />
               <div>Calender</div>
@@ -72,53 +83,41 @@ const LeftAside = () => {
           <div className="mb-3">Recruitment</div>
           <ul className="flex flex-col gap-2 font-medium">
             <li
-              onClick={() => setSelected('jobs')}
+              onClick={() => setActiveTab('jobs')}
               className={`flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-primary hover:text-white group ${
-                selected === 'jobs' ? 'bg-primary text-white' : ''
+                activeTab === 'jobs' ? 'bg-primary text-white' : ''
               }`}
             >
               <IoMdBriefcase
                 className={`text-xl text-grey group-hover:text-white  ${
-                  selected === 'jobs' ? 'text-white' : ''
+                  activeTab === 'jobs' ? 'text-white' : ''
                 }`}
               />
               <div>Jobs</div>
             </li>
+
             <li
-              onClick={() => setSelected('applications')}
+              onClick={() => setActiveTab('career')}
               className={`flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-primary hover:text-white group ${
-                selected === 'applications' ? 'bg-primary text-white' : ''
-              }`}
-            >
-              <TbAppsFilled
-                className={`text-xl text-grey group-hover:text-white  ${
-                  selected === 'applications' ? 'text-white' : ''
-                }`}
-              />
-              <div>Applications</div>
-            </li>
-            <li
-              onClick={() => setSelected('career')}
-              className={`flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-primary hover:text-white group ${
-                selected === 'career' ? 'bg-primary text-white' : ''
+                activeTab === 'career' ? 'bg-primary text-white' : ''
               }`}
             >
               <PiTreeStructureFill
                 className={`text-lg text-grey group-hover:text-white  ${
-                  selected === 'career' ? 'text-white' : ''
+                  activeTab === 'career' ? 'text-white' : ''
                 }`}
               />
               <div>Career Site</div>
             </li>
             <li
-              onClick={() => setSelected('referrals')}
+              onClick={() => setActiveTab('referrals')}
               className={`flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-primary hover:text-white group ${
-                selected === 'referrals' ? 'bg-primary text-white' : ''
+                activeTab === 'referrals' ? 'bg-primary text-white' : ''
               }`}
             >
               <FaBookBookmark
-                className={`text-lg text-grey group-hover:text-white  ${
-                  selected === 'referrals' ? 'text-white' : ''
+                className={`text-xl text-grey group-hover:text-white  ${
+                  activeTab === 'referrals' ? 'text-white' : ''
                 }`}
               />
               <div>My Referrals</div>
@@ -130,66 +129,66 @@ const LeftAside = () => {
           <div className="mb-3">Organization</div>
           <ul className="flex flex-col gap-2 font-medium">
             <li
-              onClick={() => setSelected('employee')}
+              onClick={() => setActiveTab('employee')}
               className={`flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-primary hover:text-white group ${
-                selected === 'employee' ? 'bg-primary text-white' : ''
+                activeTab === 'employee' ? 'bg-primary text-white' : ''
               }`}
             >
               <MdPerson
                 className={`text-xl text-grey group-hover:text-white  ${
-                  selected === 'employee' ? 'text-white' : ''
+                  activeTab === 'employee' ? 'text-white' : ''
                 }`}
               />
               <div>Employee</div>
             </li>
             <li
-              onClick={() => setSelected('structure')}
+              onClick={() => setActiveTab('structure')}
               className={`flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-primary hover:text-white group ${
-                selected === 'structure' ? 'bg-primary text-white' : ''
+                activeTab === 'structure' ? 'bg-primary text-white' : ''
               }`}
             >
               <FaBoxes
                 className={`text-xl text-grey group-hover:text-white  ${
-                  selected === 'structure' ? 'text-white' : ''
+                  activeTab === 'structure' ? 'text-white' : ''
                 }`}
               />
               <div>Structure</div>
             </li>
             <li
-              onClick={() => setSelected('report')}
+              onClick={() => setActiveTab('report')}
               className={`flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-primary hover:text-white group ${
-                selected === 'report' ? 'bg-primary text-white' : ''
+                activeTab === 'report' ? 'bg-primary text-white' : ''
               }`}
             >
               <BsPieChartFill
                 className={`text-xl text-grey group-hover:text-white  ${
-                  selected === 'report' ? 'text-white' : ''
+                  activeTab === 'report' ? 'text-white' : ''
                 }`}
               />
               <div>Report</div>
             </li>
             <li
-              onClick={() => setSelected('settings')}
+              onClick={() => setActiveTab('settings')}
               className={`flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-primary hover:text-white group ${
-                selected === 'settings' ? 'bg-primary text-white' : ''
+                activeTab === 'settings' ? 'bg-primary text-white' : ''
               }`}
             >
               <AiFillSetting
                 className={`text-xl text-grey group-hover:text-white  ${
-                  selected === 'settings' ? 'text-white' : ''
+                  activeTab === 'settings' ? 'text-white' : ''
                 }`}
               />
               <div>Settings</div>
             </li>
             <li
-              onClick={() => setSelected('logOut')}
+              onClick={() => setActiveTab('logOut')}
               className={`flex items-center gap-3 p-3 rounded cursor-pointer hover:bg-primary hover:text-white group ${
-                selected === 'logOut' ? 'bg-primary text-white' : ''
+                activeTab === 'logOut' ? 'bg-primary text-white' : ''
               }`}
             >
               <IoLogOut
                 className={`text-xl text-grey group-hover:text-white  ${
-                  selected === 'logOut' ? 'text-white' : ''
+                  activeTab === 'logOut' ? 'text-white' : ''
                 }`}
               />
               <div>Log Out</div>

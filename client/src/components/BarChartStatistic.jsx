@@ -67,9 +67,9 @@ const data = [
   },
 ];
 
-const BarChartStatistic = () => {
+const BarChartStatistic = ({ candidates }) => {
   return (
-    <div className="flex flex-col gap-5 py-10 max-w-[500px]">
+    <div className="flex flex-col gap-5  max-w-[500px]">
       <SectionHeader sectionHeaderTitle="Statistics of Active Applications" />
 
       <ResponsiveContainer aspect={550 / 300}>

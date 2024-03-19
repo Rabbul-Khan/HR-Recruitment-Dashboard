@@ -14,6 +14,7 @@ const Statistic = ({
 }) => {
   const colorClassName = `text-[${color}]`;
   console.log(colorClassName);
+
   return (
     <div>
       <BiDotsHorizontalRounded className="ml-auto text-2xl text-grey" />
