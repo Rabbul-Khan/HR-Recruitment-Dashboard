@@ -9,10 +9,6 @@ app.use(express.json());
 
 const Candidate = require('./models/candidate');
 
-app.get('/', (request, response) => {
-  response.send('<h1>Hello World!</h1>');
-});
-
 app.get('/api/candidates', (request, response) => {
   Candidate.find({})
     .then((result) => {
